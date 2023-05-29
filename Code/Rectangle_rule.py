@@ -15,18 +15,18 @@ def printing():
     pass
 
 
-def Rectangle(a,b,n):
+def Rectangle(a,b,n, flt_digits):
     h = (b-a)/n
     x = a
     sum = 0
     for i in range(n):
         sum += f(x)
-        print(i,': \t', round(x,7), round(f(x),7))
+        print(i,': \t', round(rnd(x, flt_digits)[-1], 10), round(rnd(f(x), flt_digits)[-1], 10))
         x += h
 
-    sum = round(sum * h, 8)
-    origianl_sum = round(integrate.quad(f,a,b)[0], 12)
-    RE_ = round(RE(origianl_sum, sum), 8)
+    sum = round(rnd(sum * h, flt_digits)[-1], 10)
+    origianl_sum = round(rnd(integrate.quad(f,a,b)[0], flt_digits)[-1], 12)
+    RE_ = round(rnd(RE(origianl_sum, sum), flt_digits)[-1], 8)
     SD = sd(RE_)[-1]
 
     print("numerical integrate: ", sum)
@@ -36,4 +36,4 @@ def Rectangle(a,b,n):
     # return h*sum
 
 
-Rectangle(0,0.1,10)
+Rectangle(0,0.1,10, 8)
