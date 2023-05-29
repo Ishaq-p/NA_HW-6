@@ -21,11 +21,13 @@ def trapezoidal(a,b,n, flt_digits):
 
     for i in range(n+1):
         x = a+i*h
-        print(i,': \t', round(rnd(x, flt_digits)[-1],10),'\t', round(rnd(f(x), flt_digits)[-1],10))
         if i == 0 or i == n:
             sum0 += f(x)
+            print(i,': \t', round(rnd(x, flt_digits)[-1],10),'\t', round(rnd(f(x)/2, flt_digits)[-1],10))
         else:
             sum1 += f(x)
+            print(i,': \t', round(rnd(x, flt_digits)[-1],10),'\t', round(rnd(f(x), flt_digits)[-1],10))
+
 
     sum = round(rnd(h*((sum0/2)+sum1), flt_digits)[-1],10)
     original = round(rnd(integrate.quad(f,a,b)[0], flt_digits)[-1], 7)
