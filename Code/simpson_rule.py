@@ -26,10 +26,10 @@ def simpson(a,b,n):
             sum0 += f(x)
             print(i,': \t', round(x,7),'\t', round(f(x),8), '\t\t', round(f(x),7))
         elif i%2==0:
-            sum2 += 2*f(x)
+            sum2 += f(x)
             print(i,': \t', round(x,7),'\t', round(f(x),8), '\t', round(2*f(x),7))
         else:
-            sum1 += 4*f(x)
+            sum1 += f(x)
             print(i,': \t', round(x,7),'\t', round(f(x),8), '\t', round(4*f(x),7))
     
     sum = round(h/3*(sum0+(4*sum1)+(2*sum2)),8)
