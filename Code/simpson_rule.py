@@ -5,7 +5,7 @@ from sig_digits import sig_digits as sd
 
 
 def f(x):
-    return 1/(1+x**2)
+    return np.exp(2.08*np.sin(x))
 
 def RE(p1,p0):
     return abs(p1-p0)/abs(p0)
@@ -48,4 +48,4 @@ def simpson(a,b,n, flt_digits):
     print("RE: ", RE_)
     print("SD: ", SD)
 
-simpson(0, 1, 10, 8)
+simpson(0, np.pi/2, 10, 8)

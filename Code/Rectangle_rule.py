@@ -6,7 +6,7 @@ from sig_digits import sig_digits as sd
 
 
 def f(x):
-    return np.exp(x**2)
+    return np.log(43.9 + (np.sin(x))**2)
 
 def RE(p1,p0):
     return abs(p1-p0)/abs(p0)
@@ -21,7 +21,8 @@ def Rectangle(a,b,n, flt_digits):
     sum = 0
     for i in range(n):
         sum += f(x)
-        print(i,': \t', round(rnd(x, flt_digits)[-1], 10), round(rnd(f(x), flt_digits)[-1], 10))
+        if i in [0,5,10,15,19]:
+            print(i,': \t', round(rnd(x, flt_digits)[-1], 10), round(rnd(f(x), flt_digits)[-1], 10))
         x += h
 
     sum = round(rnd(sum * h, flt_digits)[-1], 10)
@@ -36,4 +37,4 @@ def Rectangle(a,b,n, flt_digits):
     # return h*sum
 
 
-Rectangle(0,0.1,10, 8)
+Rectangle(0,0.5,20, 8)
